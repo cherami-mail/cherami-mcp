@@ -23,12 +23,6 @@ Run these commands inside Claude Code:
 
 Use `/mcp` to connect your Cherami account. The email skill is available as `/cherami:cherami-email`; Claude can also select it for relevant email work.
 
-To load a local checkout instead, launch Claude Code with:
-
-```sh
-claude --plugin-dir /absolute/path/to/cherami-mcp
-```
-
 ### Gemini CLI (preview)
 
 Install the extension:
