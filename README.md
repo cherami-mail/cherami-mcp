@@ -70,37 +70,9 @@ For clients using fixed bearer headers, follow [API-key setup](https://cherami.t
 
 ### Local-only MCP clients
 
-Use native remote MCP when available. A client that only launches local stdio servers can use the third-party [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge:
+Use native remote MCP when available. A client that only launches local stdio servers can use the third-party `mcp-remote` bridge. Tools still run on Cherami’s hosted service; the bridge is not a second email backend or a Cherami-owned package.
 
-```text
-Your agent → local mcp-remote bridge → https://cherami.to/mcp
-```
-
-Tools still run on Cherami's hosted service. The bridge is not a second email backend or a Cherami-owned package.
-
-This configuration uses a Claim-issued API key. With Bun installed and `CHERAMI_API_KEY` supplied through the client's private environment, a command-based MCP entry is:
-
-```json
-{
-  "mcpServers": {
-    "cherami": {
-      "command": "bunx",
-      "args": [
-        "--bun",
-        "mcp-remote@0.14.3",
-        "https://cherami.to/mcp",
-        "--transport",
-        "http-only",
-        "--header",
-        "Authorization: Bearer ${CHERAMI_API_KEY}",
-        "--silent"
-      ]
-    }
-  }
-}
-```
-
-`mcp-remote` expands the environment placeholder; do not replace it with a literal key in the configuration. The host must be able to find `bunx` and pass the environment variable to it. Configuration formats vary by client. Follow the [full bridge setup](https://cherami.to/docs/mcp#connect-through-a-local-bridge) for credential setup and troubleshooting.
+Follow the [local bridge setup guide](https://cherami.to/docs/mcp#connect-through-a-local-bridge) for configuration, credential setup and troubleshooting. This is an alternative connection path, not part of the installed plugin.
 
 ## What your agent can do
 
