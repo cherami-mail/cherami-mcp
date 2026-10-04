@@ -1,3 +1,5 @@
+<img src="assets/icon.png" alt="Cherami pigeon logo" width="96" height="96">
+
 # Cherami MCP
 
 Give recurring agent work its own email address. [Cherami](https://cherami.to) provides inboxes where project updates, questions and replies can arrive from people using their usual email app. Your connected agent reads the correspondence and works on it with its own tools.
