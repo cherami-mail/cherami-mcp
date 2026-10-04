@@ -10,7 +10,7 @@ Cherami is currently free. See [allowances](https://cherami.to/pricing) and [per
 
 ## Plugin packages
 
-The plugin files are a **preview**. Package installation, OAuth and conversational skill behavior still need verification in each target host. Their presence here does not mean they are listed or approved in a platform directory.
+The Claude Code plugin has been verified in a user session, including OAuth connection and email workflow skill behavior. Gemini CLI, Cursor, hosted Claude, Cowork and the refreshed ChatGPT package remain **previews** without equivalent host verification. These packages are not listed or approved in a platform directory.
 
 | Host | Files read from this repository | Distribution |
 | --- | --- | --- |
@@ -23,7 +23,9 @@ All formats reuse [`skills/cherami-email/SKILL.md`](skills/cherami-email/SKILL.m
 
 ### Claude
 
-For a local preview, clone this repository and launch Claude Code with `claude --plugin-dir /absolute/path/to/cherami-mcp`. The skill is available as `/cherami:cherami-email`; check `/mcp` for the connection.
+The plugin bundles the shared email workflow skill and a connection to Cherami’s hosted MCP service. It contains no hooks, scripts, executables or credentials. Claude Code verification does not establish compatibility with hosted Claude or Cowork.
+
+For local use, clone this repository and launch Claude Code with `claude --plugin-dir /absolute/path/to/cherami-mcp`. The skill is available as `/cherami:cherami-email`; check `/mcp` for the connection.
 
 For Git-backed installation, add this repository as a personal marketplace, then install its plugin:
 

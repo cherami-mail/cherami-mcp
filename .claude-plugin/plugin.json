@@ -1,6 +1,6 @@
 {
   "name": "cherami",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Give recurring agent work its own email address to receive correspondence, prepare drafts and send authorized replies.",
   "author": {
     "name": "Cherami",
@@ -16,5 +16,11 @@
     "attachments",
     "replies",
     "labels"
-  ]
+  ],
+  "displayName": "Cherami",
+  "icon": "./assets/icon.png",
+  "privacyPolicyUrl": "https://cherami.to/privacy",
+  "termsOfServiceUrl": "https://cherami.to/terms",
+  "supportUrl": "https://cherami.to/support",
+  "documentationUrl": "https://cherami.to/docs/plugin"
 }
