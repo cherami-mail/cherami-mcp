@@ -1,0 +1,17 @@
+{
+  "name": "cherami-mail",
+  "owner": {
+    "name": "Cherami",
+    "email": "hello@cherami.to"
+  },
+  "metadata": {
+    "description": "Cherami email tools and shared workflow guidance."
+  },
+  "plugins": [
+    {
+      "name": "cherami",
+      "source": "./",
+      "description": "Give recurring agent work its own email address to receive correspondence, prepare drafts and send authorized replies."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cherami",
+  "version": "1.1.0",
+  "description": "Give recurring agent work its own email address to receive correspondence, prepare drafts and send authorized replies.",
+  "mcpServers": {
+    "cherami": {
+      "httpUrl": "https://cherami.to/mcp",
+      "oauth": {
+        "enabled": true,
+        "scopes": [
+          "cherami_mail:full"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "cherami",
+  "version": "1.1.0",
+  "description": "Give recurring agent work its own email address to receive correspondence, prepare drafts and send authorized replies.",
+  "author": {
+    "name": "Cherami",
+    "email": "hello@cherami.to",
+    "url": "https://cherami.to"
+  },
+  "homepage": "https://cherami.to",
+  "repository": "https://github.com/cherami-mail/cherami-mcp",
+  "license": "MIT",
+  "keywords": [
+    "email",
+    "inbox",
+    "attachments",
+    "replies",
+    "labels"
+  ]
+}

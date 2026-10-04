@@ -4,7 +4,55 @@ Give recurring agent work its own email address. [Cherami](https://cherami.to) p
 
 Cherami is currently free. See [allowances](https://cherami.to/pricing) and [permitted sending](https://cherami.to/docs/guides/safety#permitted-sending).
 
-**This repository is an integration guide for Cherami's hosted MCP service.** It contains no server implementation, installable Cherami package or self-hosting setup. You do not need to clone it to connect.
+**This repository contains connection guidance and plugin files for Cherami's hosted MCP service.** The packages share one email workflow skill and connect to the same endpoint. They contain no server implementation or self-hosting setup. You do not need to install a plugin to connect through native MCP.
+
+## Plugin packages
+
+The plugin files are a **preview**. Package installation, OAuth and conversational skill behavior still need verification in each target host. Their presence here does not mean they are listed or approved in a platform directory.
+
+| Host | Files read from this repository | Distribution |
+| --- | --- | --- |
+| Claude | `.claude-plugin/plugin.json`, `.mcp.json`, `skills/` | Git-backed plugin and personal marketplace |
+| Gemini CLI | `gemini-extension.json`, `skills/` | GitHub-installed extension |
+| Cursor | `plugin.json`, `mcp.json`, `skills/` | Agent Plugins format, prepared for marketplace submission |
+| ChatGPT | `plugin.json`, `mcp.json`, `skills/`, `assets/` | Portable ZIP, submitted separately |
+
+All formats reuse [`skills/cherami-email/SKILL.md`](skills/cherami-email/SKILL.md). The host-specific manifests are small adapters, not separately maintained versions of the skill. There are no executables, hooks or embedded credentials.
+
+### Claude
+
+For a local preview, clone this repository and launch Claude Code with `claude --plugin-dir /absolute/path/to/cherami-mcp`. The skill is available as `/cherami:cherami-email`; check `/mcp` for the connection.
+
+For Git-backed installation, add this repository as a personal marketplace, then install its plugin:
+
+```text
+/plugin marketplace add cherami-mail/cherami-mcp
+/plugin install cherami@cherami-mail
+```
+
+This is Cherami's own catalog, not an Anthropic directory listing. In hosted Claude or Cowork, bundled remote servers require connecting from the plugin's Connectors tab; Claude Code connects directly. Compatibility on one surface does not establish it on the others.
+
+### Gemini CLI
+
+Install the extension from this repository:
+
+```sh
+gemini extensions install https://github.com/cherami-mail/cherami-mcp
+```
+
+Restart the CLI session after installation. Use `/mcp list` to inspect the server and `/mcp auth cherami` when authentication is needed. The extension requests Cherami's mail scope through native OAuth; its browser callback and private-call authentication still need host verification. This package targets Gemini CLI, not the consumer Gemini app.
+
+### Cursor and ChatGPT
+
+Cursor documents support for the root Agent Plugins manifest and MCP configuration supplied here. A Cursor marketplace release still requires local verification, publisher-terms acceptance and submission. There is no Cursor install listing to link yet.
+
+The same portable files can form a ChatGPT submission ZIP. These refreshed files are not the identity of the existing ChatGPT submission and have not been resubmitted. Platform-specific manifests for Claude and Gemini are not needed in that ZIP.
+
+### After installing
+
+Keep only one active Cherami server configuration in a host. A manually configured server or another plugin with the same server name can take precedence. Installing another copy is not an authentication repair.
+
+Ask the agent to list your Cherami inboxes, complete host-managed browser authorization, and select an inbox for the assignment. The [connection guide below](#connect-your-agent) explains what that check establishes. Tell the agent which routine correspondence it may handle and when it should ask you.
 
 ## Connect your agent
 
@@ -105,4 +153,4 @@ Use the [connection troubleshooting guide](https://cherami.to/docs/mcp#troublesh
 
 ## License
 
-This repository's documentation and configuration examples are licensed under [CC BY 4.0](LICENSE). Attribute Cherami and indicate modifications when reusing them. This license does not cover Cherami's hosted implementation or third-party software such as `mcp-remote`.
+The documentation, skills, manifests and included assets in this repository are licensed under [MIT](LICENSE). This license does not cover Cherami's hosted implementation, grant service access or cover third-party software such as `mcp-remote`. Earlier CC BY 4.0 releases retain their original license.

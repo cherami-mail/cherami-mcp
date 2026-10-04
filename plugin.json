@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cherami",
+  "version": "1.1.0",
+  "description": "Give recurring agent work its own email address to receive correspondence, prepare drafts and send authorized replies.",
+  "author": {
+    "name": "Cherami",
+    "email": "hello@cherami.to",
+    "url": "https://cherami.to"
+  },
+  "homepage": "https://cherami.to",
+  "keywords": [
+    "email",
+    "inbox",
+    "attachments",
+    "replies",
+    "labels"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Cherami",
+        "shortDescription": "An email inbox for your agent",
+        "longDescription": "Give ongoing project work its own email address. Find correspondence and attachments, follow conversations, save drafts and send authorized replies. Cherami handles email; your connected agent works on it with its own tools. Sign in and approve access to connect your Cherami account.",
+        "developerName": "Cherami",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://cherami.to",
+        "privacyPolicyURL": "https://cherami.to/privacy",
+        "termsOfServiceURL": "https://cherami.to/terms",
+        "defaultPrompt": [
+          "Help me set up an email address for my agent.",
+          "Summarize the latest messages in my Cherami inbox.",
+          "Find the latest email with an attachment and summarize it."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "supportURL": "https://cherami.to/support"
+      }
+    }
+  },
+  "repository": "https://github.com/cherami-mail/cherami-mcp",
+  "license": "MIT"
+}
