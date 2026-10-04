@@ -8,49 +8,40 @@ Cherami is currently free. See [allowances](https://cherami.to/pricing) and [per
 
 **This repository contains connection guidance and plugin files for Cherami's hosted MCP service.** The packages share one email workflow skill and connect to the same endpoint. They contain no server implementation or self-hosting setup. You do not need to install a plugin to connect through native MCP.
 
-## Plugin packages
+## Install the plugin
 
-The Claude Code plugin has been verified in a user session, including OAuth connection and email workflow skill behavior. Gemini CLI, Cursor, hosted Claude, Cowork and the refreshed ChatGPT package remain **previews** without equivalent host verification. These packages are not listed or approved in a platform directory.
+The plugin adds an email workflow skill and connects your agent to Cherami’s hosted MCP service. It contains no hooks, scripts, executables or credentials.
 
-| Host | Files read from this repository | Distribution |
-| --- | --- | --- |
-| Claude | `.claude-plugin/plugin.json`, `.mcp.json`, `skills/` | Git-backed plugin and personal marketplace |
-| Gemini CLI | `gemini-extension.json`, `skills/` | GitHub-installed extension |
-| Cursor | `plugin.json`, `mcp.json`, `skills/` | Agent Plugins format, prepared for marketplace submission |
-| ChatGPT | `plugin.json`, `mcp.json`, `skills/`, `assets/` | Portable ZIP, submitted separately |
+### Claude Code
 
-All formats reuse [`skills/cherami-email/SKILL.md`](skills/cherami-email/SKILL.md). The host-specific manifests are small adapters, not separately maintained versions of the skill. There are no executables, hooks or embedded credentials.
-
-### Claude
-
-The plugin bundles the shared email workflow skill and a connection to Cherami’s hosted MCP service. It contains no hooks, scripts, executables or credentials. Claude Code verification does not establish compatibility with hosted Claude or Cowork.
-
-For local use, clone this repository and launch Claude Code with `claude --plugin-dir /absolute/path/to/cherami-mcp`. The skill is available as `/cherami:cherami-email`; check `/mcp` for the connection.
-
-For Git-backed installation, add this repository as a personal marketplace, then install its plugin:
+Run these commands inside Claude Code:
 
 ```text
 /plugin marketplace add cherami-mail/cherami-mcp
 /plugin install cherami@cherami-mail
 ```
 
-This is Cherami's own catalog, not an Anthropic directory listing. In hosted Claude or Cowork, bundled remote servers require connecting from the plugin's Connectors tab; Claude Code connects directly. Compatibility on one surface does not establish it on the others.
+Use `/mcp` to connect your Cherami account. The email skill is available as `/cherami:cherami-email`; Claude can also select it for relevant email work.
 
-### Gemini CLI
+To load a local checkout instead, launch Claude Code with:
 
-Install the extension from this repository:
+```sh
+claude --plugin-dir /absolute/path/to/cherami-mcp
+```
+
+### Gemini CLI (preview)
+
+Install the extension:
 
 ```sh
 gemini extensions install https://github.com/cherami-mail/cherami-mcp
 ```
 
-Restart the CLI session after installation. Use `/mcp list` to inspect the server and `/mcp auth cherami` when authentication is needed. The extension requests Cherami's mail scope through native OAuth; its browser callback and private-call authentication still need host verification. This package targets Gemini CLI, not the consumer Gemini app.
+Restart the CLI session after installation. Use `/mcp list` to inspect the server and `/mcp auth cherami` to sign in. This integration is experimental and targets Gemini CLI, not the consumer Gemini app.
 
-### Cursor and ChatGPT
+### Other hosts
 
-Cursor documents support for the root Agent Plugins manifest and MCP configuration supplied here. A Cursor marketplace release still requires local verification, publisher-terms acceptance and submission. There is no Cursor install listing to link yet.
-
-The same portable files can form a ChatGPT submission ZIP. These refreshed files are not the identity of the existing ChatGPT submission and have not been resubmitted. Platform-specific manifests for Claude and Gemini are not needed in that ZIP.
+For hosted Claude, Cowork, Cursor and ChatGPT, use the [MCP connection guide](https://cherami.to/docs/mcp). The plugin files for these hosts are experimental; use native MCP if you only need access to Cherami’s mail tools.
 
 ### After installing
 
@@ -93,7 +84,7 @@ Your agent → local mcp-remote bridge → https://cherami.to/mcp
 
 Tools still run on Cherami's hosted service. The bridge is not a second email backend or a Cherami-owned package.
 
-The verified bridge path uses a Claim-issued API key. With Bun installed and `CHERAMI_API_KEY` supplied through the client's private environment, a command-based MCP entry is:
+This configuration uses a Claim-issued API key. With Bun installed and `CHERAMI_API_KEY` supplied through the client's private environment, a command-based MCP entry is:
 
 ```json
 {
@@ -116,8 +107,6 @@ The verified bridge path uses a Claim-issued API key. With Bun installed and `CH
 ```
 
 `mcp-remote` expands the environment placeholder; do not replace it with a literal key in the configuration. The host must be able to find `bunx` and pass the environment variable to it. Configuration formats vary by client. Follow the [full bridge setup](https://cherami.to/docs/mcp#connect-through-a-local-bridge) for credential setup and troubleshooting.
-
-This pinned version completed initialization and an authenticated `list_inboxes` call against Cherami through Bun. That verifies the bridge's API-key path, not every desktop client or the bridge's browser OAuth flow.
 
 ## What your agent can do
 
