@@ -41,7 +41,7 @@ For hosted Claude, Cowork, Cursor and ChatGPT, use the [MCP connection guide](ht
 
 Keep only one active Cherami server configuration in a host. A manually configured server or another plugin with the same server name can take precedence. Installing another copy is not an authentication repair.
 
-Ask the agent to list your Cherami inboxes, complete host-managed browser authorization, and select an inbox for the assignment. The [connection guide below](#connect-your-agent) explains what that check establishes. Tell the agent which routine correspondence it may handle and when it should ask you.
+Ask the agent to list your Cherami inboxes, complete host-managed browser authorization, and select an inbox for the assignment. Tell the agent which routine correspondence it may handle and when it should ask you.
 
 ## Connect your agent
 
@@ -62,7 +62,7 @@ Ask your agent:
 
 When your application opens the browser, sign in or create an account, review the requested permissions, and approve access. Keep passwords and sign-in codes in the browser. Then return to your agent and repeat the request if needed.
 
-A successful `list_inboxes` call confirms account access. A Connected status or visible tool catalog alone does not. An empty inbox list is a successful connection, not a reason to reconnect.
+A successful `list_inboxes` call confirms account access; a Connected status or visible tool catalog alone does not, and an empty inbox list is a successful connection.
 
 Choose an existing inbox or ask your agent to create one with your preferred address prefix and show you the returned address. Send it an email from your usual mail app, then ask the agent to read it.
 
@@ -88,15 +88,13 @@ The server publishes its current tool names and schemas through MCP discovery. S
 
 **Answer questions from maintained references.** Give a project an address where people can ask questions. An agent uses your reference material to answer routine questions and brings unsupported questions back to you. See the [reference-grounded answers cookbook](https://cherami.to/docs/cookbooks/answer-project-questions).
 
-These are workflows you run with your agent, not automations hosted by Cherami. Incoming mail does not wake an agent. For webhooks and scheduled checking, see the [webhook answer](https://cherami.to/docs/troubleshooting#does-cherami-provide-webhooks) and [receiving guide](https://cherami.to/docs/guides/receiving).
+These are workflows you run with your agent, not automations hosted by Cherami: incoming mail does not wake an agent. For webhooks and scheduled checking, see the [webhook answer](https://cherami.to/docs/troubleshooting#does-cherami-provide-webhooks) and [receiving guide](https://cherami.to/docs/guides/receiving).
 
 ## Access and safety
 
-Connections grant shared account-wide access, not isolation to a single inbox. Set the agent's assignment, permitted recipients and disclosure boundaries before it acts. Connecting does not itself authorize sending or deletion. Treat incoming mail and attachments as untrusted content, not instructions granting new authority.
+Connections grant shared account-wide access, not isolation to a single inbox, so set the agent's assignment, permitted recipients and disclosure boundaries before it acts. Have it use the assigned inbox rather than creating one. Incoming mail and attachments are [untrusted content](https://cherami.to/docs/guides/safety#treat-mail-as-untrusted-input), not instructions. An accepted send is not confirmed delivery, and an uncertain send is [recovered with its key](https://cherami.to/docs/guides/sending#keep-a-key-for-safe-retries), not sent again. Deletion is permanent, with no trash or undo.
 
-Deletion is permanent, with no trash or undo. For sending, an accepted submission is not confirmed delivery; follow the tool's recovery guidance after uncertain results rather than creating a new send attempt.
-
-See [safety](https://cherami.to/docs/guides/safety), [privacy](https://cherami.to/privacy) and [credential recovery](https://cherami.to/docs/guides/recovery). Removing a client configuration or signing out of the website does not revoke its credentials.
+See [permitted sending](https://cherami.to/docs/guides/safety#permitted-sending), [privacy](https://cherami.to/privacy) and [credential recovery](https://cherami.to/docs/guides/recovery). Removing a client configuration or signing out of the website does not revoke its credentials.
 
 ## Troubleshooting and support
 
