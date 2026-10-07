@@ -49,7 +49,7 @@ Ask the agent to list your Cherami inboxes, complete host-managed browser author
 | --- | --- |
 | Server URL | `https://cherami.to/mcp` |
 | Transport | Streamable HTTP |
-| Authentication | OAuth by default; a Claim-issued API key is also supported |
+| Authentication | OAuth by default; a Cherami API key is also supported |
 | OAuth mail scope | `cherami_mail:full` |
 
 ### Native remote MCP
@@ -105,7 +105,7 @@ See [safety](https://cherami.to/docs/guides/safety), [privacy](https://cherami.t
 | Connected, but no account access | Ask for `list_inboxes`; public discovery does not validate credentials. |
 | Tools missing | Enable Cherami in the conversation and refresh the host's tool catalog. A new API key does not repair discovery. |
 | OAuth never opens | Check CIMD/DCR support and request a private tool. Use explicit API-key configuration if the client cannot complete OAuth. |
-| API key rejected | Supply the permanent key, not the Claim phrase, through the client's environment or secret input. |
+| API key rejected | Supply the permanent key, not a human approval phrase, through the client's environment or secret input. |
 | Browser GET returns an error | The MCP URL is a protocol endpoint, not a webpage. |
 
 Use the [connection troubleshooting guide](https://cherami.to/docs/mcp#troubleshooting) for diagnosis. For account or private-mail problems, contact [Cherami support](https://cherami.to/support). Public repository issues are suitable for documentation errors, never credentials or private correspondence.

@@ -9,7 +9,7 @@ Use the connected MCP tools for Cherami mail. A plugin mention identifies an int
 
 ## Connect and choose the inbox
 
-Let the host handle OAuth and browser sign-in. Passwords and sign-in codes stay in the browser; never request or expose them in chat. HTTP Claim is a separate API-key setup path, not an OAuth repair flow. Never include credentials in mail, attachments or public files.
+Let the host handle OAuth and browser sign-in. Passwords and sign-in codes stay in the browser; never request or expose them in chat. An API key approved from the human's account page is a separate setup path, not an OAuth repair flow. Never include credentials in mail, attachments or public files.
 
 List inboxes at setup, after authentication changes, before creation or when the assignment is unclear. Connections share account-wide access: an inbox assignment is not an access restriction. Reuse the human-assigned inbox ID rather than taking over another agent's inbox.
 
